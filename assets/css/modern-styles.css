@@ -1,0 +1,745 @@
+/* =============================================
+   KLICK N CODE - Modern Styles & Animations
+   ============================================= */
+
+/* CSS Custom Properties for theming */
+:root {
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  --dark-gradient: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Dark theme adjustments */
+[data-bs-theme="dark"] {
+  --glass-bg: rgba(0, 0, 0, 0.2);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+/* =============================================
+   GLOBAL ANIMATIONS
+   ============================================= */
+
+/* Fade in up animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade in down animation */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade in left animation */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Fade in right animation */
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Scale in animation */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Float animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+/* Pulse glow animation */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(102, 126, 234, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(102, 126, 234, 0.8);
+  }
+}
+
+/* Shimmer animation */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Gradient shift animation */
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* =============================================
+   ANIMATION UTILITY CLASSES
+   ============================================= */
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-fade-in-down {
+  animation: fadeInDown 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-fade-in-left {
+  animation: fadeInLeft 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-fade-in-right {
+  animation: fadeInRight 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Animation delays */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
+.delay-700 { animation-delay: 0.7s; }
+.delay-800 { animation-delay: 0.8s; }
+
+/* =============================================
+   NAVBAR STYLES
+   ============================================= */
+
+#mainNav {
+  background: transparent;
+  backdrop-filter: blur(0px);
+  transition: var(--transition-smooth);
+}
+
+#mainNav.navbar-shrink {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px var(--shadow-color);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.navbar-brand {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  transition: var(--transition-smooth);
+}
+
+.navbar-brand:hover {
+  transform: scale(1.05);
+}
+
+.navbar-brand span:last-child {
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.nav-link {
+  position: relative;
+  font-weight: 500;
+  transition: var(--transition-smooth);
+  padding: 0.5rem 1rem !important;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--primary-gradient);
+  transition: var(--transition-smooth);
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 80%;
+}
+
+.nav-link:hover {
+  color: #667eea !important;
+  transform: translateY(-2px);
+}
+
+/* =============================================
+   BUTTONS
+   ============================================= */
+
+.btn {
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition-smooth);
+  border-radius: 50px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+.btn-primary {
+  background: var(--primary-gradient);
+  border: none;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+  background: var(--primary-gradient);
+}
+
+.btn-primary:active {
+  transform: translateY(-1px);
+}
+
+.btn-light {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(102, 126, 234, 0.2);
+  color: #667eea;
+}
+
+.btn-light:hover {
+  background: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  color: #667eea;
+}
+
+.btn-warning {
+  background: linear-gradient(135deg, #f5af19 0%, #f12711 100%);
+  border: none;
+  color: white;
+}
+
+.btn-warning:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(245, 175, 25, 0.5);
+  color: white;
+}
+
+/* =============================================
+   CARDS
+   ============================================= */
+
+.card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border) !important;
+  border-radius: 20px !important;
+  transition: var(--transition-smooth);
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px var(--shadow-color);
+  border-color: rgba(102, 126, 234, 0.3) !important;
+}
+
+.card-body {
+  position: relative;
+  z-index: 1;
+}
+
+/* Pricing card special styles */
+.card.border-secondary {
+  border: 2px solid transparent !important;
+  background: 
+    linear-gradient(var(--bs-body-bg), var(--bs-body-bg)) padding-box,
+    var(--primary-gradient) border-box;
+  position: relative;
+}
+
+.card.border-secondary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--primary-gradient);
+  opacity: 0.05;
+  z-index: 0;
+}
+
+/* =============================================
+   HERO SECTION
+   ============================================= */
+
+header {
+  position: relative;
+  overflow: hidden;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 50%);
+  animation: gradientShift 15s ease infinite;
+}
+
+header h1 {
+  line-height: 1.2;
+}
+
+header .underline {
+  position: relative;
+  text-decoration: none;
+}
+
+header .underline::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: var(--primary-gradient);
+  opacity: 0.5;
+  border-radius: 4px;
+}
+
+header img {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* =============================================
+   SECTION STYLES
+   ============================================= */
+
+section {
+  position: relative;
+}
+
+section h2, section h3 {
+  position: relative;
+}
+
+.underline {
+  position: relative;
+  display: inline-block;
+}
+
+.underline::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: var(--primary-gradient);
+  opacity: 0.4;
+  border-radius: 3px;
+  z-index: -1;
+}
+
+/* =============================================
+   ICONS
+   ============================================= */
+
+.bs-icon {
+  transition: var(--transition-smooth);
+}
+
+.bs-icon:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.bs-icon-primary {
+  background: var(--primary-gradient) !important;
+}
+
+.bs-icon-secondary {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%) !important;
+}
+
+.bs-icon-lg {
+  transition: var(--transition-smooth);
+}
+
+.bs-icon-lg:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+}
+
+/* =============================================
+   FORM INPUTS
+   ============================================= */
+
+.form-control {
+  border: 2px solid transparent;
+  border-radius: 12px;
+  padding: 12px 18px;
+  transition: var(--transition-smooth);
+  background: var(--glass-bg);
+}
+
+.form-control:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15);
+  background: var(--bs-body-bg);
+}
+
+.form-control::placeholder {
+  color: #999;
+  transition: var(--transition-smooth);
+}
+
+.form-control:focus::placeholder {
+  transform: translateX(10px);
+  opacity: 0.5;
+}
+
+/* =============================================
+   ACCORDION
+   ============================================= */
+
+.accordion-item {
+  border-radius: 12px !important;
+  margin-bottom: 12px;
+  border: 1px solid var(--glass-border) !important;
+  overflow: hidden;
+  transition: var(--transition-smooth);
+}
+
+.accordion-item:hover {
+  box-shadow: 0 5px 20px var(--shadow-color);
+}
+
+.accordion-button {
+  font-weight: 600;
+  border-radius: 12px !important;
+  transition: var(--transition-smooth);
+}
+
+.accordion-button:not(.collapsed) {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  color: #667eea;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+  border-color: rgba(102, 126, 234, 0.3);
+}
+
+/* =============================================
+   FOOTER
+   ============================================= */
+
+footer {
+  position: relative;
+  overflow: hidden;
+}
+
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--primary-gradient);
+}
+
+footer a {
+  transition: var(--transition-smooth);
+}
+
+footer a:hover {
+  color: #667eea !important;
+  transform: translateX(5px);
+  display: inline-block;
+}
+
+footer .list-inline-item a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  transition: var(--transition-smooth);
+}
+
+footer .list-inline-item a:hover {
+  background: var(--primary-gradient);
+  transform: translateY(-5px) rotate(360deg);
+  color: white !important;
+}
+
+footer .list-inline-item a svg {
+  transition: var(--transition-smooth);
+}
+
+footer .list-inline-item a:hover svg {
+  fill: white;
+}
+
+/* =============================================
+   STATISTICS / COUNTERS
+   ============================================= */
+
+.fs-2.fw-bold.text-primary {
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* =============================================
+   TESTIMONIALS
+   ============================================= */
+
+.bi-quote {
+  color: #667eea !important;
+  opacity: 0.8;
+}
+
+/* =============================================
+   IMAGE EFFECTS
+   ============================================= */
+
+img.img-fluid {
+  transition: var(--transition-smooth);
+}
+
+section:hover img.img-fluid {
+  transform: scale(1.02);
+}
+
+.rounded.img-fluid {
+  border-radius: 20px !important;
+  box-shadow: 0 20px 60px var(--shadow-color);
+}
+
+/* =============================================
+   CTA SECTIONS
+   ============================================= */
+
+.bg-primary.border {
+  background: var(--primary-gradient) !important;
+  border: none !important;
+  border-radius: 24px !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.bg-primary.border::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+  animation: gradientShift 10s ease infinite;
+}
+
+/* =============================================
+   BADGE / LABELS
+   ============================================= */
+
+.badge.bg-secondary {
+  background: var(--primary-gradient) !important;
+  font-weight: 600;
+  padding: 8px 16px;
+  font-size: 0.75rem;
+}
+
+/* =============================================
+   SCROLL ANIMATIONS (for JS intersection observer)
+   ============================================= */
+
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.scroll-animate.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =============================================
+   HOVER EFFECTS
+   ============================================= */
+
+.hover-lift {
+  transition: var(--transition-smooth);
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px var(--shadow-color);
+}
+
+.hover-glow:hover {
+  animation: pulseGlow 2s infinite;
+}
+
+/* =============================================
+   LOADING ANIMATION
+   ============================================= */
+
+.loading-shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* =============================================
+   CUSTOM SCROLLBAR
+   ============================================= */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-gradient);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #764ba2;
+}
+
+[data-bs-theme="dark"]::-webkit-scrollbar-track {
+  background: #1a1a2e;
+}
+
+/* =============================================
+   SELECTION STYLES
+   ============================================= */
+
+::selection {
+  background: rgba(102, 126, 234, 0.3);
+  color: #667eea;
+}
+
+/* =============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================= */
+
+@media (max-width: 768px) {
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+  
+  header img {
+    animation: float 8s ease-in-out infinite;
+  }
+}
+
+/* =============================================
+   REDUCED MOTION
+   ============================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
