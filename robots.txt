@@ -6,6 +6,3 @@ Allow: /
 
 # Sitemap location
 Sitemap: https://koala3353.github.io/klickncode/sitemap.xml
-
-# Crawl-delay (optional, for politeness)
-Crawl-delay: 10
