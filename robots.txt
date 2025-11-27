@@ -1,0 +1,8 @@
+# Robots.txt for Klick n Code
+# https://koala3353.github.io/klickncode/
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://koala3353.github.io/klickncode/sitemap.xml
