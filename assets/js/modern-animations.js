@@ -78,7 +78,9 @@
   }
 
   // =============================================
-  // NAVBAR SCROLL EFFECT
+  // NAVBAR SCROLL EFFECT (Hide on scroll down, show on scroll up)
+  // Note: Basic shrink functionality is handled by startup-modern.js
+  // This adds the hide/show on scroll direction feature
   // =============================================
   
   function initNavbarEffect() {
@@ -86,26 +88,25 @@
     if (!navbar) return;
 
     let lastScroll = 0;
-    const scrollThreshold = 100;
+    let ticking = false;
 
     window.addEventListener('scroll', () => {
-      const currentScroll = window.pageYOffset;
-      
-      // Add/remove shrink class
-      if (currentScroll > scrollThreshold) {
-        navbar.classList.add('navbar-shrink');
-      } else {
-        navbar.classList.remove('navbar-shrink');
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const currentScroll = window.pageYOffset;
+          
+          // Hide/show navbar on scroll direction (only when scrolled past 500px)
+          if (currentScroll > lastScroll && currentScroll > 500) {
+            navbar.style.transform = 'translateY(-100%)';
+          } else {
+            navbar.style.transform = 'translateY(0)';
+          }
+          
+          lastScroll = currentScroll;
+          ticking = false;
+        });
+        ticking = true;
       }
-
-      // Hide/show navbar on scroll direction
-      if (currentScroll > lastScroll && currentScroll > 500) {
-        navbar.style.transform = 'translateY(-100%)';
-      } else {
-        navbar.style.transform = 'translateY(0)';
-      }
-      
-      lastScroll = currentScroll;
     });
   }
 
@@ -156,24 +157,6 @@
       `;
       document.head.appendChild(style);
     }
-  }
-
-  // =============================================
-  // PARALLAX EFFECT FOR IMAGES
-  // =============================================
-  
-  function initParallax() {
-    const parallaxElements = document.querySelectorAll('header img, .parallax');
-    
-    window.addEventListener('scroll', () => {
-      const scrolled = window.pageYOffset;
-      
-      parallaxElements.forEach(el => {
-        const speed = el.dataset.speed || 0.3;
-        const yPos = -(scrolled * speed);
-        el.style.transform = `translateY(${yPos}px)`;
-      });
-    });
   }
 
   // =============================================
@@ -288,11 +271,21 @@
   // =============================================
   
   function initPageLoad() {
-    document.body.style.opacity = '0';
+    // Only apply loading animation if JavaScript is enabled
+    // Use CSS class instead of inline styles for better fallback
+    document.documentElement.classList.add('js-loading');
+    
+    // Add loading styles dynamically
+    const loadingStyle = document.createElement('style');
+    loadingStyle.textContent = `
+      .js-loading body { opacity: 0; }
+      .js-loaded body { opacity: 1; transition: opacity 0.5s ease; }
+    `;
+    document.head.appendChild(loadingStyle);
     
     window.addEventListener('load', () => {
-      document.body.style.transition = 'opacity 0.5s ease';
-      document.body.style.opacity = '1';
+      document.documentElement.classList.remove('js-loading');
+      document.documentElement.classList.add('js-loaded');
       
       // Animate hero elements
       const heroElements = document.querySelectorAll('header h1, header p, header .btn, header img');
@@ -307,6 +300,12 @@
         }, 200 + (index * 150));
       });
     });
+    
+    // Fallback: show content after 3 seconds even if load event hasn't fired
+    setTimeout(() => {
+      document.documentElement.classList.remove('js-loading');
+      document.documentElement.classList.add('js-loaded');
+    }, 3000);
   }
 
   // =============================================
@@ -314,32 +313,61 @@
   // =============================================
   
   function initCursorGlow() {
-    // Only on desktop
-    if (window.innerWidth < 1024) return;
+    // Use matchMedia for responsive behavior
+    const desktopQuery = window.matchMedia('(min-width: 1024px)');
     
-    const glow = document.createElement('div');
-    glow.style.cssText = `
-      position: fixed;
-      width: 300px;
-      height: 300px;
-      background: radial-gradient(circle, rgba(102, 126, 234, 0.15) 0%, transparent 70%);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 9999;
-      transform: translate(-50%, -50%);
-      transition: transform 0.1s ease, opacity 0.3s ease;
-      opacity: 0;
-    `;
-    document.body.appendChild(glow);
+    let glow = null;
     
-    document.addEventListener('mousemove', (e) => {
-      glow.style.left = e.clientX + 'px';
-      glow.style.top = e.clientY + 'px';
-      glow.style.opacity = '1';
-    });
+    function createGlow() {
+      if (glow) return;
+      
+      glow = document.createElement('div');
+      glow.className = 'cursor-glow';
+      glow.style.cssText = `
+        position: fixed;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(circle, rgba(102, 126, 234, 0.15) 0%, transparent 70%);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+        transition: opacity 0.3s ease;
+        opacity: 0;
+      `;
+      document.body.appendChild(glow);
+      
+      document.addEventListener('mousemove', handleMouseMove);
+    }
     
-    document.addEventListener('mouseleave', () => {
-      glow.style.opacity = '0';
+    function removeGlow() {
+      if (glow) {
+        glow.remove();
+        glow = null;
+        document.removeEventListener('mousemove', handleMouseMove);
+      }
+    }
+    
+    function handleMouseMove(e) {
+      if (glow) {
+        glow.style.left = e.clientX + 'px';
+        glow.style.top = e.clientY + 'px';
+        glow.style.opacity = '1';
+      }
+    }
+    
+    // Initialize based on current screen size
+    if (desktopQuery.matches) {
+      createGlow();
+    }
+    
+    // Listen for screen size changes
+    desktopQuery.addEventListener('change', (e) => {
+      if (e.matches) {
+        createGlow();
+      } else {
+        removeGlow();
+      }
     });
   }
 
