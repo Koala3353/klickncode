@@ -1,6 +1,6 @@
 # Klick n Code
 
-A responsive website for a freelance development service offering custom Discord bots and websites.
+A static website for a freelance development service offering custom Discord bots and websites.
 
 ## Services
 
@@ -10,9 +10,11 @@ A responsive website for a freelance development service offering custom Discord
 
 ## Features
 
-- Responsive design with Bootstrap 5
-- Dark/light theme switching
-- Modern UI with smooth animations
+- Vanilla HTML, CSS and JavaScript, no framework
+- `assets/css/kc.css` design system: tokens, components, light and dark themes
+- `assets/js/kc.js`: theme switcher, mobile menu, reveals, copy buttons
+- Custom inline SVG illustrations with scroll-driven parallax
+- Contact form that validates and composes an email in your mail app
 
 ## Pages
 
@@ -23,10 +25,3 @@ A responsive website for a freelance development service offering custom Discord
 - Testimonials
 - FAQ
 - Contacts
-
-## Technologies
-
-- HTML5
-- CSS3
-- Bootstrap 5
-- JavaScript

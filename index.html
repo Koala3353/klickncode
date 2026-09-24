@@ -1,556 +1,35 @@
 <!DOCTYPE html>
-<html data-bs-theme="auto" lang="en">
-
+<html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Klick n Code - Custom Discord Bots & Website Development Services</title>
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Klick n Code offers professional custom Discord bot development and website design services. Get high-quality, custom-made solutions with 99.99% uptime. Prices starting from $100.">
-    <meta name="keywords" content="klick n code, klickncode, discord bot development, custom discord bots, website development, web design, freelance developer, custom websites, discord bot services">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Klick n Code - Custom Discord Bots &amp; Websites</title>
+    <meta name="description" content="Klick n Code builds custom Discord bots and websites for communities and small businesses. Bots from $100, websites from $200, most bots delivered in about a week.">
+    <meta name="keywords" content="klick n code, klickncode, discord bot development, custom discord bots, website development, web design, freelance developer">
     <meta name="author" content="Klick n Code">
     <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0b0f0d">
     <link rel="canonical" href="https://koala3353.github.io/klickncode/">
-    
-    <!-- Open Graph / Facebook -->
+
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://koala3353.github.io/klickncode/">
-    <meta property="og:title" content="Klick n Code - Custom Discord Bots & Website Development">
-    <meta property="og:description" content="Professional custom Discord bot development and website design services. Built by the best for the best of the best!">
+    <meta property="og:title" content="Klick n Code - Custom Discord Bots &amp; Websites">
+    <meta property="og:description" content="Custom Discord bots and websites for communities and small businesses. Bots from $100, websites from $200.">
     <meta property="og:image" content="https://koala3353.github.io/klickncode/assets/img/brands/K.png">
     <meta property="og:site_name" content="Klick n Code">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://koala3353.github.io/klickncode/">
-    <meta name="twitter:title" content="Klick n Code - Custom Discord Bots & Website Development">
-    <meta name="twitter:description" content="Professional custom Discord bot development and website design services. Built by the best for the best of the best!">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Klick n Code - Custom Discord Bots &amp; Websites">
+    <meta name="twitter:description" content="Custom Discord bots and websites for communities and small businesses.">
     <meta name="twitter:image" content="https://koala3353.github.io/klickncode/assets/img/brands/K.png">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="./assets/img/brands/K.png">
-    <link rel="apple-touch-icon" href="./assets/img/brands/K.png">
-    <script>
-        (function() {
 
-            // JavaScript snippet handling Dark/Light mode switching
+    <link rel="icon" type="image/svg+xml" href="assets/img/svg/logo.svg">
+    <link rel="apple-touch-icon" href="assets/img/brands/K.png">
+    <script>try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400..700&family=Geist+Mono:wght@400..600&display=swap">
+    <link rel="stylesheet" href="assets/css/kc.css">
 
-            const getStoredTheme = () => localStorage.getItem('theme');
-            const setStoredTheme = theme => localStorage.setItem('theme', theme);
-            const forcedTheme = document.documentElement.getAttribute('data-bss-forced-theme');
-
-            const getPreferredTheme = () => {
-
-                if (forcedTheme) return forcedTheme;
-
-                const storedTheme = getStoredTheme();
-                if (storedTheme) {
-                    return storedTheme;
-                }
-
-                const pageTheme = document.documentElement.getAttribute('data-bs-theme');
-
-                if (pageTheme) {
-                    return pageTheme;
-                }
-
-                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-            }
-
-            const setTheme = theme => {
-                if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                    document.documentElement.setAttribute('data-bs-theme', 'dark');
-                } else {
-                    document.documentElement.setAttribute('data-bs-theme', theme);
-                }
-            }
-
-            setTheme(getPreferredTheme());
-
-            const showActiveTheme = (theme, focus = false) => {
-                const themeSwitchers = [].slice.call(document.querySelectorAll('.theme-switcher'));
-
-                if (!themeSwitchers.length) return;
-
-                document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
-                    element.classList.remove('active');
-                    element.setAttribute('aria-pressed', 'false');
-                });
-
-                for (const themeSwitcher of themeSwitchers) {
-
-                    const btnToActivate = themeSwitcher.querySelector('[data-bs-theme-value="' + theme + '"]');
-
-                    if (btnToActivate) {
-                        btnToActivate.classList.add('active');
-                        btnToActivate.setAttribute('aria-pressed', 'true');
-                    }
-                }
-            }
-
-            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-                const storedTheme = getStoredTheme();
-                if (storedTheme !== 'light' && storedTheme !== 'dark') {
-                    setTheme(getPreferredTheme());
-                }
-            });
-
-            window.addEventListener('DOMContentLoaded', () => {
-                showActiveTheme(getPreferredTheme());
-
-                document.querySelectorAll('[data-bs-theme-value]')
-                    .forEach(toggle => {
-                        toggle.addEventListener('click', (e) => {
-                            e.preventDefault();
-                            const theme = toggle.getAttribute('data-bs-theme-value');
-                            setStoredTheme(theme);
-                            setTheme(theme);
-                            showActiveTheme(theme);
-                        })
-                    })
-            });
-        })();
-    </script>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/modern-styles.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap">
-</head>
-
-<body>
-    <nav class="navbar navbar-expand-md fixed-top navbar-shrink py-3" id="mainNav">
-        <div class="container"><a class="navbar-brand d-flex align-items-center" href="index.html"><span class="bs-icon-sm bs-icon-circle bs-icon-primary shadow d-flex justify-content-center align-items-center me-2 bs-icon"><img src="assets/img/brands/K.png" style="height: 35px;"></span><span>Klick n Code</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse text-center" id="navcol-1">
-                <ul class="navbar-nav text-center mx-auto">
-                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="features.html">Features</a></li>
-                    <li class="nav-item"><a class="nav-link" href="integrations.html">Integrations</a></li>
-                    <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
-                </ul><a class="btn btn-primary shadow" role="button" href="contacts.html">Contacts</a>
-            </div>
-        </div>
-    </nav>
-    <header class="pt-5">
-        <div class="container pt-4 pt-xl-5">
-            <div class="row pt-5">
-                <div class="col-md-8 text-center text-md-start mx-auto">
-                    <div class="text-center">
-                        <h1 class="display-4 fw-bold mb-5">Custom made <span class="underline">Discord&nbsp;</span><span class="underline">Bots&nbsp;</span>&nbsp;or&nbsp;<span class="underline">Websites</span>.</h1>
-                        <p class="fs-5 text-muted mb-5">Built by the best for the best of the best!</p>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-10 mx-auto">
-                    <div class="text-center position-relative"><img class="img-fluid" src="assets/img/illustrations/meeting.svg" style="width: 800px;"></div>
-                </div>
-            </div>
-        </div>
-    </header>
-    <section>
-        <div class="container py-4 py-xl-5">
-            <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-lg-3">
-                <div class="col">
-                    <div class="card border-light border-1 d-flex justify-content-center p-4">
-                        <div class="card-body">
-                            <div class="bs-icon-lg bs-icon-rounded bs-icon-secondary d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block mb-4 bs-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-question-mark">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                    <path d="M8 8a3.5 3 0 0 1 3.5 -3h1a3.5 3 0 0 1 3.5 3a3 3 0 0 1 -2 3a3 4 0 0 0 -2 4"></path>
-                                    <path d="M12 19l0 .01"></path>
-                                </svg></div>
-                            <div>
-                                <h4 class="fw-bold">About Us</h4>
-                                <p class="text-muted">Do you want to know more about the developer? Click the link below!</p><a class="btn btn-sm px-0" role="button" target="_blank" href="https://koala3353.github.io/portfolio/">Learn More&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-arrow-right">
-                                        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"></path>
-                                    </svg><br></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card border-light border-1 d-flex justify-content-center p-4">
-                        <div class="card-body">
-                            <div class="bs-icon-lg bs-icon-rounded bs-icon-secondary d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block mb-4 bs-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-file-text">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                    <path d="M14 3v4a1 1 0 0 0 1 1h4"></path>
-                                    <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"></path>
-                                    <path d="M9 9l1 0"></path>
-                                    <path d="M9 13l6 0"></path>
-                                    <path d="M9 17l6 0"></path>
-                                </svg></div>
-                            <div>
-                                <h4 class="fw-bold">Testimonials</h4>
-                                <p class="text-muted">Feel free to check other people's testimonials about us!</p><a class="btn btn-sm px-0" role="button" href="testimonials.html">Learn More&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-arrow-right">
-                                        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"></path>
-                                    </svg><br></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card border-light border-1 d-flex justify-content-center p-4">
-                        <div class="card-body">
-                            <div class="bs-icon-lg bs-icon-rounded bs-icon-secondary d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block mb-4 bs-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-reserved-line">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                    <path d="M9 20h6"></path>
-                                    <path d="M12 14v6"></path>
-                                    <path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"></path>
-                                    <path d="M9 9h6"></path>
-                                </svg></div>
-                            <div>
-                                <h4 class="fw-bold">Services</h4>
-                                <p class="text-muted">What services do we offer? Say no more! Click the link below to find out!</p><a class="btn btn-sm px-0" role="button" href="pricing.html">Learn More&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-arrow-right">
-                                        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"></path>
-                                    </svg><br></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section>
-        <div class="container py-4 py-xl-5">
-            <div class="row">
-                <div class="col-md-6">
-                    <h3 class="display-6 fw-bold pb-md-4">Features that make your business&nbsp;<span class="underline">stand out</span></h3>
-                </div>
-                <div class="col-md-6 pt-4">
-                    <p class="text-muted mb-4">We offer you services that will make your business stand out more compared to others! From a fully functioning website to a multi-purpose discord bot!</p>
-                </div>
-            </div>
-            <div class="row gy-4 gy-md-0">
-                <div class="col-md-6 d-flex d-sm-flex d-md-flex justify-content-center align-items-center justify-content-md-start align-items-md-center justify-content-xl-center">
-                    <div>
-                        <div class="row gy-2 row-cols-1 row-cols-sm-2">
-                            <div class="col text-center text-md-start">
-                                <div class="d-flex justify-content-center align-items-center justify-content-md-start"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-sun fs-3 text-primary bg-secondary">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                        <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
-                                        <path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"></path>
-                                    </svg>
-                                    <h5 class="fw-bold mb-0 ms-2">Websites</h5>
-                                </div>
-                                <p class="text-muted my-3">Having your own website that works on any device would help you a lot!</p>
-                            </div>
-                            <div class="col text-center text-md-start">
-                                <div class="d-flex justify-content-center align-items-center justify-content-md-start"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-sun fs-3 text-primary bg-secondary">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                        <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
-                                        <path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"></path>
-                                    </svg>
-                                    <h5 class="fw-bold mb-0 ms-2">Discord bots</h5>
-                                </div>
-                                <p class="text-muted my-3">Do you have a discord server? What is better than to have a custom bot to go with it!</p>
-                            </div>
-                            <div class="col text-center text-md-start">
-                                <div class="d-flex justify-content-center align-items-center justify-content-md-start"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-sun fs-3 text-primary bg-secondary">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                        <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
-                                        <path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"></path>
-                                    </svg>
-                                    <h5 class="fw-bold mb-0 ms-2">99.99% uptime</h5>
-                                </div>
-                                <p class="text-muted my-3">We all hate downtimes. If you choose us,. we would try our best to have 0 downtime!</p>
-                            </div>
-                            <div class="col text-center text-md-start">
-                                <div class="d-flex justify-content-center align-items-center justify-content-md-start"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-sun fs-3 text-primary bg-secondary">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                        <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
-                                        <path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"></path>
-                                    </svg>
-                                    <h5 class="fw-bold mb-0 ms-2">0% lag</h5>
-                                </div>
-                                <p class="text-muted my-3">We try to make our products function as smooth as possible.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 order-first order-md-last">
-                    <div><img class="rounded img-fluid w-100 fit-cover" style="min-height: 300px;" src="assets/img/illustrations/teamwork.svg"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section>
-        <div class="container py-4 py-xl-5">
-            <div class="row gy-4 gy-md-0">
-                <div class="col-md-6 text-center text-md-start d-flex d-sm-flex d-md-flex justify-content-center align-items-center justify-content-md-start align-items-md-center justify-content-xl-center">
-                    <div><img class="rounded img-fluid fit-cover" style="min-height: 300px;" src="assets/img/illustrations/presentation.svg" width="800"></div>
-                </div>
-                <div class="col">
-                    <div style="max-width: 450px;">
-                        <h3 class="fw-bold pb-md-4">We love numbers, here are some random&nbsp;<span class="underline">statistics</span>&nbsp;about us!</h3>
-                        <p class="text-muted py-4 py-md-0">Last updated: 07/18/2024</p>
-                        <div class="row gy-4 row-cols-2 row-cols-md-2">
-                            <div class="col">
-                                <div><span class="fs-2 fw-bold text-primary bg-secondary">30+</span>
-                                    <p class="fw-normal text-muted">Overall Customers</p>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div><span class="fs-2 fw-bold text-primary bg-secondary">10,000+</span>
-                                    <p class="fw-normal text-muted">Average lines of code</p>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div><span class="fs-2 fw-bold text-primary bg-secondary">$250</span>
-                                    <p class="fw-normal text-muted">Average cost per job</p>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div><span class="fs-2 fw-bold text-primary bg-secondary">1 week</span>
-                                    <p class="fw-normal text-muted">Average time per order</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="py-4 py-xl-5">
-        <div class="container">
-            <div class="bg-primary border rounded border-0 border-primary overflow-hidden">
-                <div class="row g-0">
-                    <div class="col-md-6 d-flex flex-column justify-content-center">
-                        <div class="text-white p-4 p-md-5">
-                            <h2 class="fw-bold mb-3">Do you want to see our previous projects?</h2>
-                            <p class="mb-4">We made a list of our projects that were allowed to publicly post for you to see!</p>
-                            <div class="my-3"><a class="btn btn-secondary me-2 mt-2" role="button" href="https://koala3353.github.io/portfolio/projects.html" target="_blank">View Projects</a><a class="btn btn-light mt-2" role="button" href="https://github.com/Koala3353" target="_blank">View Github</a></div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 order-first order-md-last" style="min-height: 250px;"><img class="w-100 h-100 fit-contain pt-5 pt-md-0" src="assets/img/illustrations/web-development.svg"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="py-5">
-        <div class="container py-4 py-xl-5">
-            <div class="row mb-5">
-                <div class="col-md-8 col-xl-6 text-center mx-auto">
-                    <h2 class="display-6 fw-bold mb-4">Check out<br>our <span class="underline">amazing options</span></h2>
-                    <p class="text-muted">Payment are accepted via Paymaya, Gcash, or cryptocurrency, with prices typically ranging from $200 to $300 depending on complexity. For more intricate bots, prices may exceed $300. Feel free to reach out for a personalized quote.</p>
-                </div>
-            </div>
-            <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-lg-3">
-                <div class="col">
-                    <div class="card border-0 h-100">
-                        <div class="card-body d-flex flex-column justify-content-between p-4">
-                            <div>
-                                <h6 class="fw-bold text-muted">Discord Bots</h6>
-                                <h4 class="display-5 fw-bold mb-4">$100+</h4>
-                                <ul class="list-unstyled">
-                                    <li class="d-flex mb-2"><span class="bs-icon-xs bs-icon-rounded bs-icon me-2"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-check fs-5 text-primary-emphasis">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                                <path d="M5 12l5 5l10 -10"></path>
-                                            </svg></span><span>Database implementation (SQLite)</span></li>
-                                    <li class="d-flex mb-2"><span class="bs-icon-xs bs-icon-rounded bs-icon me-2"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-check fs-5 text-primary-emphasis">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                                <path d="M5 12l5 5l10 -10"></path>
-                                            </svg></span><span>Hosting setup</span></li>
-                                    <li class="d-flex mb-2"><span class="bs-icon-xs bs-icon-rounded bs-icon me-2"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-check fs-5 text-primary-emphasis">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                                <path d="M5 12l5 5l10 -10"></path>
-                                            </svg></span><span>External API integration</span></li>
-                                    <li class="d-flex mb-2"><span class="bs-icon-xs bs-icon-rounded bs-icon me-2"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-check fs-5 text-primary-emphasis">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                                <path d="M5 12l5 5l10 -10"></path>
-                                            </svg></span><span>AI related features</span></li>
-                                    <li class="d-flex mb-2"><span class="bs-icon-xs bs-icon-rounded bs-icon me-2"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-check fs-5 text-primary-emphasis">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                                <path d="M5 12l5 5l10 -10"></path>
-                                            </svg></span><span>RPG system</span></li>
-                                    <li class="d-flex mb-2"><span class="bs-icon-xs bs-icon-rounded bs-icon me-2"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-check fs-5 text-primary-emphasis">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                                <path d="M5 12l5 5l10 -10"></path>
-                                            </svg></span><span>Web scraping</span></li>
-                                    <li class="d-flex mb-2"><span class="bs-icon-xs bs-icon-rounded bs-icon me-2"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-check fs-5 text-primary-emphasis">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                                <path d="M5 12l5 5l10 -10"></path>
-                                            </svg></span><span>Completed within 1 week (avg)</span></li>
-                                </ul>
-                            </div><a class="btn btn-primary" role="button" href="#">Buy Now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card border-secondary border-2 h-100">
-                        <div class="card-body d-flex flex-column justify-content-between p-4"><span class="badge bg-secondary position-absolute top-0 end-0 rounded-bottom-left text-uppercase text-primary">Most Popular</span>
-                            <div>
-                                <h6 class="fw-bold text-muted">Websites</h6>
-                                <h4 class="display-5 fw-bold mb-4">$200+</h4>
-                                <ul class="list-unstyled">
-                                    <li class="d-flex mb-2"><span class="bs-icon-xs bs-icon-rounded bs-icon me-2"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-check fs-5 text-primary-emphasis">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                                <path d="M5 12l5 5l10 -10"></path>
-                                            </svg></span><span>Database implementation (MongoDB)</span></li>
-                                    <li class="d-flex mb-2"><span class="bs-icon-xs bs-icon-rounded bs-icon me-2"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-check fs-5 text-primary-emphasis">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                                <path d="M5 12l5 5l10 -10"></path>
-                                            </svg></span><span>Free website hosting</span></li>
-                                    <li class="d-flex mb-2"><span class="bs-icon-xs bs-icon-rounded bs-icon me-2"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-check fs-5 text-primary-emphasis">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                                <path d="M5 12l5 5l10 -10"></path>
-                                            </svg></span><span>Completely customizable</span></li>
-                                    <li class="d-flex mb-2"><span class="bs-icon-xs bs-icon-rounded bs-icon me-2"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-check fs-5 text-primary-emphasis">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                                <path d="M5 12l5 5l10 -10"></path>
-                                            </svg></span><span>Free domain setup</span></li>
-                                    <li class="d-flex mb-2"><span class="bs-icon-xs bs-icon-rounded bs-icon me-2"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-check fs-5 text-primary-emphasis">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                                <path d="M5 12l5 5l10 -10"></path>
-                                            </svg></span><span>Completed within 1 month (avg)</span></li>
-                                </ul>
-                            </div><a class="btn btn-warning" role="button" href="#">Buy Now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col offset-md-3 offset-lg-0">
-                    <div class="card border-0 h-100">
-                        <div class="card-body d-flex flex-column justify-content-between p-4">
-                            <div class="pb-4">
-                                <h6 class="fw-bold text-muted">Discord bots with Website</h6>
-                                <h4 class="display-5 fw-bold mb-4">$400+</h4>
-                                <ul class="list-unstyled">
-                                    <li class="d-flex mb-2"><span class="bs-icon-xs bs-icon-rounded bs-icon me-2"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-check fs-5 text-primary-emphasis">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                                <path d="M5 12l5 5l10 -10"></path>
-                                            </svg></span><span>Database implementation (MongoDB)</span></li>
-                                    <li class="d-flex mb-2"><span class="bs-icon-xs bs-icon-rounded bs-icon me-2"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-check fs-5 text-primary-emphasis">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                                <path d="M5 12l5 5l10 -10"></path>
-                                            </svg></span><span>Smooth interactions between the Discord bot and the website</span></li>
-                                    <li class="d-flex mb-2"><span class="bs-icon-xs bs-icon-rounded bs-icon me-2"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-check fs-5 text-primary-emphasis">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                                <path d="M5 12l5 5l10 -10"></path>
-                                            </svg></span><span>All of the features stated in the other 2 categories</span></li>
-                                    <li class="d-flex mb-2"><span class="bs-icon-xs bs-icon-rounded bs-icon me-2"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-check fs-5 text-primary-emphasis">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                                <path d="M5 12l5 5l10 -10"></path>
-                                            </svg></span><span>Completed within 1-2 months</span></li>
-                                </ul>
-                            </div><a class="btn btn-primary" role="button" href="#">Buy Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="py-4 py-xl-5 mb-5">
-        <div class="container">
-            <div class="row mb-2">
-                <div class="col-md-8 col-xl-6 text-center mx-auto">
-                    <h2 class="display-6 fw-bold mb-5"><span class="pb-3 underline">FAQ<br></span></h2>
-                    <p class="text-muted mb-5">Got any questions? We are here to answer them!</p>
-                </div>
-            </div>
-            <div class="row mb-2">
-                <div class="col-md-8 mx-auto">
-                    <div class="accordion text-muted" role="tablist" id="accordion-1">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" role="tab"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-1 .item-1" aria-expanded="true" aria-controls="accordion-1 .item-1">Will there be any downpayments?</button></h2>
-                            <div class="accordion-collapse collapse show item-1" role="tabpanel" data-bs-parent="#accordion-1">
-                                <div class="accordion-body">
-                                    <p>Yes, we always require a down payment before hand. Although on rare exceptions we prove to the customer that the job can be done first before asking for any payments.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" role="tab"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-1 .item-2" aria-expanded="false" aria-controls="accordion-1 .item-2">Do you offer any refunds?</button></h2>
-                            <div class="accordion-collapse collapse item-2" role="tabpanel" data-bs-parent="#accordion-1">
-                                <div class="accordion-body">
-                                    <p class="mb-0">We do <strong>NOT </strong>offer any refunds unless we are unable to complete the project on our end.&nbsp;</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" role="tab"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-1 .item-3" aria-expanded="false" aria-controls="accordion-1 .item-3">Are there any limits to what's possible?</button></h2>
-                            <div class="accordion-collapse collapse item-3" role="tabpanel" data-bs-parent="#accordion-1">
-                                <div class="accordion-body">
-                                    <p class="mb-0">It depends! As long as discord could be used to make your dream to reality, then the sky's the limit!</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="py-4 py-xl-5">
-        <div class="container">
-            <div class="text-white bg-primary border rounded border-0 border-primary d-flex flex-column justify-content-between flex-lg-row p-4 p-md-5">
-                <div class="pb-2 pb-lg-1">
-                    <h2 class="fw-bold text-secondary mb-2">Not sure which plan suits you?</h2>
-                    <p class="mb-0">Feel free to contact us and we'll give you some reccomendations!</p>
-                </div>
-                <div class="my-2"><a class="btn btn-light fs-5 py-2 px-4" role="button" href="contacts.html">Contact us</a></div>
-            </div>
-        </div>
-    </section>
-    <footer>
-        <div class="container py-4 py-lg-5" style="border-top-style: solid;">
-            <div class="row row-cols-2 row-cols-md-4">
-                <div class="col-12 col-md-3">
-                    <div class="fw-bold d-flex align-items-center mb-2"><span>Klick n Code</span></div>
-                    <p class="text-muted">Built by the best for the best of the best!</p>
-                </div>
-                <div class="col-sm-4 col-md-3 text-lg-start d-flex flex-column">
-                    <h3 class="fs-6 fw-bold">Services</h3>
-                    <ul class="list-unstyled">
-                        <li><a href="pricing.html">Web design</a></li>
-                        <li><a href="pricing.html">Discord bots</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-4 col-md-3 text-lg-start d-flex flex-column">
-                    <h3 class="fs-6 fw-bold">About Me</h3>
-                    <ul class="list-unstyled">
-                        <li><a href="https://koala3353.github.io/portfolio/about.html" target="_blank">My story</a></li>
-                        <li><a href="https://koala3353.github.io/portfolio/testimonials.html" target="_blank">Testimonials</a></li>
-                        <li><a href="https://koala3353.github.io/portfolio/education.html" target="_blank">Education &amp; Work</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-4 col-md-3 text-lg-start d-flex flex-column">
-                    <h3 class="fs-6 fw-bold">Others</h3>
-                    <ul class="list-unstyled">
-                        <li><a href="https://koala3353.github.io/portfolio/contacts.html" target="_blank">Contact us</a></li>
-                        <li><a href="https://koala3353.github.io/portfolio/projects.html" target="_blank">Projects</a></li>
-                        <li><a href="#">Settings</a></li>
-                    </ul>
-                </div>
-            </div>
-            <hr>
-            <div class="text-muted d-flex justify-content-between align-items-center pt-3">
-                <div class="theme-switcher dropdown"><button class="btn btn-link dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button" style="color: var(--bs-body-color);"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-sun-fill mb-1">
-                            <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path>
-                        </svg></button>
-                    <div class="dropdown-menu"><a class="dropdown-item d-flex align-items-center" href="#" data-bs-theme-value="light"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-sun-fill opacity-50 me-2">
-                                <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path>
-                            </svg>Light</a><a class="dropdown-item d-flex align-items-center" href="#" data-bs-theme-value="dark"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-moon-stars-fill opacity-50 me-2">
-                                <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278"></path>
-                                <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path>
-                            </svg>Dark</a><a class="dropdown-item d-flex align-items-center" href="#" data-bs-theme-value="auto"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-circle-half opacity-50 me-2">
-                                <path d="M8 15A7 7 0 1 0 8 1zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16"></path>
-                            </svg>Auto</a></div>
-                </div>
-                <p class="mb-0">Cheers! Have a great day!</p>
-                <ul class="list-inline mb-0">
-                    <li class="list-inline-item"><a href="https://www.facebook.com/rainingfishyyy/" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-facebook">
-                                <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"></path>
-                            </svg></a></li>
-                    <li class="list-inline-item"><a href="https://github.com/Koala3353" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-github">
-                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8"></path>
-                            </svg></a></li>
-                    <li class="list-inline-item"><a href="https://www.linkedin.com/in/keene-brigado-7494b7316/" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-linkedin">
-                                <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401m-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4"></path>
-                            </svg></a></li>
-                </ul>
-            </div>
-        </div>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/startup-modern.js"></script>
-    <script src="assets/js/modern-animations.js"></script>
-    
-    <!-- JSON-LD Structured Data for SEO -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -559,7 +38,7 @@
         "alternateName": ["klickncode", "Klick and Code", "KlicknCode"],
         "url": "https://koala3353.github.io/klickncode/",
         "logo": "https://koala3353.github.io/klickncode/assets/img/brands/K.png",
-        "description": "Professional custom Discord bot development and website design services. Built by the best for the best of the best!",
+        "description": "Custom Discord bot development and website design for communities and small businesses.",
         "sameAs": [
             "https://www.facebook.com/rainingfishyyy/",
             "https://github.com/Koala3353",
@@ -581,42 +60,443 @@
         "url": "https://koala3353.github.io/klickncode/"
     }
     </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "serviceType": "Custom Software Development",
-        "provider": {
-            "@type": "Organization",
-            "name": "Klick n Code"
-        },
-        "name": "Discord Bot and Website Development",
-        "description": "Custom Discord bot development starting from $100 and website design starting from $200",
-        "offers": [
-            {
-                "@type": "Offer",
-                "name": "Discord Bots",
-                "price": "100",
-                "priceCurrency": "USD",
-                "description": "Custom Discord bot development with database, API integration, AI features and more"
-            },
-            {
-                "@type": "Offer",
-                "name": "Websites",
-                "price": "200",
-                "priceCurrency": "USD",
-                "description": "Custom website development with free hosting and domain setup"
-            },
-            {
-                "@type": "Offer",
-                "name": "Discord Bots with Website",
-                "price": "400",
-                "priceCurrency": "USD",
-                "description": "Combined Discord bot and website solution with seamless integration"
-            }
-        ]
-    }
-    </script>
-</body>
+</head>
 
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="progress" aria-hidden="true"></div>
+
+    <header class="nav">
+        <div class="wrap nav__inner">
+            <a class="brand" href="index.html" aria-label="Klick n Code home">
+                <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#c8f55a"/><path d="M20 16v32" stroke="#0b0f0d" stroke-width="6" stroke-linecap="round"/><path d="M44 16 29 32l15 16" fill="none" stroke="#0b0f0d" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="47" cy="32" r="3.5" fill="#0b0f0d"/></svg>
+                <span>Klick n Code</span>
+            </a>
+            <nav aria-label="Primary" class="nav__links" id="primary-nav">
+                <a href="index.html" aria-current="page">Home</a>
+                <a href="features.html">Features</a>
+                <a href="integrations.html">Integrations</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="testimonials.html">Testimonials</a>
+                <a class="btn btn--primary nav__mobile-cta" href="contacts.html">Start a project</a>
+            </nav>
+            <div class="nav__actions">
+                <div class="theme">
+                    <button class="icon-btn theme__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Change theme">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9"/></svg>
+                    </button>
+                    <div class="theme__menu" role="menu" aria-label="Theme">
+                        <button type="button" role="menuitemradio" aria-checked="false" data-theme-value="light"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M3 12h1m8-9v1m8 8h1m-9 8v1M5.6 5.6l.7.7m12.1-.7-.7.7m0 11.4.7.7m-12.1-.7-.7.7"/></svg>Light</button>
+                        <button type="button" role="menuitemradio" aria-checked="false" data-theme-value="dark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9"/></svg>Dark</button>
+                        <button type="button" role="menuitemradio" aria-checked="true" data-theme-value="auto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1"/><path d="M7 20h10M9 16v4m6-4v4"/></svg>System</button>
+                    </div>
+                </div>
+                <a class="btn btn--primary btn--sm nav__cta" href="contacts.html">Start a project</a>
+                <button class="icon-btn menu-btn" type="button" aria-controls="primary-nav" aria-expanded="false" aria-label="Open menu">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main">
+        <!-- Hero -->
+        <section class="hero">
+            <div class="field" aria-hidden="true"></div>
+            <div class="wrap hero__grid">
+                <div class="hero__copy">
+                    <h1 class="h-display">Discord bots and websites, <span class="mark">built to order</span>.</h1>
+                    <p class="lede">Custom bots for your server and fast sites for your business. Most bots ship in about a week.</p>
+                    <div class="hero__ctas">
+                        <a class="btn btn--primary" href="contacts.html">Start a project
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6 6 6-6m-6-6 6 6"/></svg>
+                        </a>
+                        <a class="link-arrow" href="pricing.html">See pricing
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6 6 6-6m-6-6 6 6"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero__art">
+                    <svg viewBox="0 0 560 560" data-tilt role="img" aria-labelledby="hero-art-title">
+                        <title id="hero-art-title">A website window connected to a Discord chat where a custom bot confirms an order</title>
+                        <style>
+                            .h-surface{fill:var(--surface)} .h-surface2{fill:var(--surface-2)} .h-bg{fill:var(--bg-2)}
+                            .h-line{stroke:var(--line-strong)} .h-lineSoft{stroke:var(--line)} .h-acc{fill:var(--accent)} .h-accS{stroke:var(--accent)}
+                            .h-ink{fill:var(--accent-ink)} .h-txt{fill:var(--text)} .h-mut{fill:var(--muted)}
+                            .h-mono{font-family:"Geist Mono",ui-monospace,monospace}
+                            [data-layer]{transition:transform .6s cubic-bezier(.16,1,.3,1)}
+                        </style>
+
+                        <!-- back layer: orbits -->
+                        <g data-layer="6">
+                            <circle cx="280" cy="280" r="250" fill="none" class="h-lineSoft" stroke-width="1"/>
+                            <circle cx="280" cy="280" r="180" fill="none" class="h-lineSoft" stroke-width="1" stroke-dasharray="2 8"/>
+                            <circle cx="62" cy="170" r="5" class="h-acc"/>
+                            <circle cx="500" cy="404" r="4" class="h-mut"/>
+                            <circle cx="430" cy="62" r="3" class="h-mut"/>
+                        </g>
+
+                        <!-- mid layer: website window -->
+                        <g data-layer="14" class="float-a">
+                            <rect x="30" y="80" width="370" height="262" rx="18" class="h-surface h-line" stroke-width="1.5"/>
+                            <circle cx="56" cy="106" r="5" class="h-mut" opacity=".5"/><circle cx="74" cy="106" r="5" class="h-mut" opacity=".5"/><circle cx="92" cy="106" r="5" class="h-mut" opacity=".5"/>
+                            <rect x="120" y="98" width="200" height="16" rx="8" class="h-bg"/>
+                            <line x1="30" y1="128" x2="400" y2="128" class="h-lineSoft" stroke-width="1.5"/>
+                            <rect x="54" y="152" width="150" height="16" rx="4" class="h-txt"/>
+                            <rect x="54" y="176" width="112" height="16" rx="4" class="h-txt"/>
+                            <rect x="54" y="206" width="138" height="7" rx="3.5" class="h-mut" opacity=".55"/>
+                            <rect x="54" y="220" width="104" height="7" rx="3.5" class="h-mut" opacity=".55"/>
+                            <rect x="54" y="246" width="84" height="28" rx="14" class="h-acc"/>
+                            <rect x="226" y="148" width="150" height="130" rx="12" class="h-bg"/>
+                            <path d="M240 262 282 214l26 28 18-18 36 38z" class="h-surface2"/>
+                            <circle cx="344" cy="176" r="12" class="h-acc" opacity=".85"/>
+                            <rect x="54" y="296" width="96" height="26" rx="8" class="h-bg"/>
+                            <rect x="162" y="296" width="96" height="26" rx="8" class="h-bg"/>
+                            <rect x="270" y="296" width="106" height="26" rx="8" class="h-bg"/>
+                        </g>
+
+                        <!-- connector: webhook from site to bot -->
+                        <path d="M318 342 C 318 392, 250 380, 252 420" fill="none" class="h-accS draw" stroke-width="2" stroke-dasharray="6 6" style="--len:160"/>
+                        <circle cx="318" cy="342" r="5" class="h-acc"/>
+
+                        <!-- front layer: discord-style chat -->
+                        <g data-layer="26" class="float-b">
+                            <rect x="150" y="300" width="380" height="232" rx="18" class="h-surface2 h-line" stroke-width="1.5"/>
+                            <text x="176" y="336" class="h-mut h-mono" font-size="13"># orders</text>
+                            <line x1="150" y1="352" x2="530" y2="352" class="h-lineSoft" stroke-width="1.5"/>
+
+                            <g class="pop" style="--d:.6s">
+                                <circle cx="190" cy="384" r="16" class="h-bg"/>
+                                <text x="190" y="389" text-anchor="middle" class="h-mut h-mono" font-size="12" font-weight="600">MR</text>
+                                <text x="216" y="380" class="h-txt" font-size="13" font-weight="600" font-family="Geist, sans-serif">maria</text>
+                                <text x="216" y="399" class="h-txt h-mono" font-size="13"><tspan class="h-acc" style="fill:var(--accent-text)">/order</tspan> track 1042</text>
+                            </g>
+
+                            <g class="pop" style="--d:1.3s">
+                                <rect x="174" y="424" width="32" height="32" rx="10" class="h-acc"/>
+                                <path d="M184 432v16M196 432l-7 8 7 8" fill="none" class="h-ink" stroke="var(--accent-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+                                <text x="216" y="436" class="h-txt" font-size="13" font-weight="600" font-family="Geist, sans-serif">KnC Bot</text>
+                                <rect x="272" y="425" width="30" height="15" rx="4" class="h-acc" opacity=".2"/>
+                                <text x="287" y="436" text-anchor="middle" class="h-mono" font-size="9" style="fill:var(--accent-text)">BOT</text>
+                                <rect x="216" y="446" width="286" height="62" rx="10" class="h-bg"/>
+                                <rect x="216" y="446" width="4" height="62" rx="2" class="h-acc"/>
+                                <text x="234" y="470" class="h-txt" font-size="13" font-weight="600" font-family="Geist, sans-serif">Order #1042 is ready</text>
+                                <text x="234" y="491" class="h-mut h-mono" font-size="11.5">Pickup after 3:40 PM</text>
+                                <rect x="420" y="462" width="68" height="28" rx="14" class="h-acc"/>
+                                <text x="454" y="480" text-anchor="middle" class="h-ink" font-size="12" font-weight="600" font-family="Geist, sans-serif">Confirm</text>
+                            </g>
+                            <rect x="176" y="516" width="2" height="0" class="h-acc"/>
+                        </g>
+
+                        <!-- floating slash chip -->
+                        <g data-layer="36">
+                            <g class="float-a">
+                                <rect x="408" y="206" width="132" height="40" rx="20" class="h-acc"/>
+                                <text x="474" y="231" text-anchor="middle" class="h-ink h-mono" font-size="13" font-weight="600">/ticket new</text>
+                                <rect x="523" y="218" width="2" height="16" class="h-ink blink"/>
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stack marquee -->
+        <div class="marquee" aria-label="Tools we build with">
+            <div class="marquee__track">
+                <div class="marquee__item"><img src="https://cdn.simpleicons.org/discord/ffffff" alt="" width="22" height="22">Discord API</div>
+                <div class="marquee__item"><img src="https://cdn.simpleicons.org/nodedotjs/ffffff" alt="" width="22" height="22">Node.js</div>
+                <div class="marquee__item"><img src="https://cdn.simpleicons.org/python/ffffff" alt="" width="22" height="22">Python</div>
+                <div class="marquee__item"><img src="https://cdn.simpleicons.org/javascript/ffffff" alt="" width="22" height="22">JavaScript</div>
+                <div class="marquee__item"><img src="https://cdn.simpleicons.org/mongodb/ffffff" alt="" width="22" height="22">MongoDB</div>
+                <div class="marquee__item"><img src="https://cdn.simpleicons.org/sqlite/ffffff" alt="" width="22" height="22">SQLite</div>
+                <div class="marquee__item"><img src="https://cdn.simpleicons.org/html5/ffffff" alt="" width="22" height="22">HTML</div>
+                <div class="marquee__item"><img src="https://cdn.simpleicons.org/github/ffffff" alt="" width="22" height="22">GitHub</div>
+                <div class="marquee__item" aria-hidden="true"><img src="https://cdn.simpleicons.org/discord/ffffff" alt="" width="22" height="22">Discord API</div>
+                <div class="marquee__item" aria-hidden="true"><img src="https://cdn.simpleicons.org/nodedotjs/ffffff" alt="" width="22" height="22">Node.js</div>
+                <div class="marquee__item" aria-hidden="true"><img src="https://cdn.simpleicons.org/python/ffffff" alt="" width="22" height="22">Python</div>
+                <div class="marquee__item" aria-hidden="true"><img src="https://cdn.simpleicons.org/javascript/ffffff" alt="" width="22" height="22">JavaScript</div>
+                <div class="marquee__item" aria-hidden="true"><img src="https://cdn.simpleicons.org/mongodb/ffffff" alt="" width="22" height="22">MongoDB</div>
+                <div class="marquee__item" aria-hidden="true"><img src="https://cdn.simpleicons.org/sqlite/ffffff" alt="" width="22" height="22">SQLite</div>
+                <div class="marquee__item" aria-hidden="true"><img src="https://cdn.simpleicons.org/html5/ffffff" alt="" width="22" height="22">HTML</div>
+                <div class="marquee__item" aria-hidden="true"><img src="https://cdn.simpleicons.org/github/ffffff" alt="" width="22" height="22">GitHub</div>
+            </div>
+        </div>
+
+        <!-- Services bento -->
+        <section class="section" aria-labelledby="services-title">
+            <div class="wrap">
+                <div class="stack reveal" style="--stack:16px; margin-bottom:48px; max-width:720px">
+                    <h2 class="h-section" id="services-title">What we build</h2>
+                    <p class="lede">Two things, done properly: bots that run your server and sites that work on every screen.</p>
+                </div>
+                <div class="bento">
+                    <article class="tile tile--wide tile--deep reveal">
+                        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 9h8M8 13h6"/><path d="M18 4a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3h-5l-5 3v-3H6a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3z"/></svg></div>
+                        <h3>Discord bots</h3>
+                        <p class="muted">Slash commands, tickets, roles, economies, RPG systems, AI replies and web scraping. Built around how your server actually runs.</p>
+                        <div class="tile__art" aria-hidden="true">
+                            <svg viewBox="0 0 640 170">
+                                <rect x="0" y="0" width="640" height="46" rx="12" style="fill:var(--bg)" stroke="var(--line-strong)"/>
+                                <text x="18" y="29" style="fill:var(--accent-text);font-family:'Geist Mono',monospace" font-size="15">/</text>
+                                <text x="32" y="29" style="fill:var(--text);font-family:'Geist Mono',monospace" font-size="15">ro</text>
+                                <rect x="54" y="15" width="2" height="18" style="fill:var(--accent)" class="blink"/>
+                                <rect x="0" y="56" width="640" height="112" rx="12" style="fill:var(--bg)" stroke="var(--line)"/>
+                                <rect x="8" y="64" width="624" height="46" rx="8" style="fill:var(--accent-soft)"/>
+                                <text x="24" y="92" style="fill:var(--text);font-family:'Geist Mono',monospace" font-size="14">/roles assign</text>
+                                <text x="180" y="92" style="fill:var(--muted)" font-size="13" font-family="Geist, sans-serif">Give a member a role from a menu</text>
+                                <text x="24" y="143" style="fill:var(--text);font-family:'Geist Mono',monospace" font-size="14">/rpg profile</text>
+                                <text x="180" y="143" style="fill:var(--muted)" font-size="13" font-family="Geist, sans-serif">Show level, gold and inventory</text>
+                            </svg>
+                        </div>
+                    </article>
+                    <article class="tile tile--third tile--accent reveal" style="--i:1">
+                        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10H7z"/><path d="M4 12h3m10 0h3M12 4v3m0 10v3"/></svg></div>
+                        <h3>Bot + website combos</h3>
+                        <p class="muted">A dashboard or storefront that talks to your bot, sharing one database.</p>
+                        <a class="link-arrow" href="pricing.html" style="color:inherit">From $400
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:inherit"><path d="M5 12h14m-6 6 6-6m-6-6 6 6"/></svg>
+                        </a>
+                    </article>
+                    <article class="tile tile--third reveal">
+                        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg></div>
+                        <h3>Support after launch</h3>
+                        <p class="muted">Bug fixes and small tweaks after launch are free. Just message us.</p>
+                    </article>
+                    <article class="tile tile--wide reveal" style="--i:1">
+                        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1"/><path d="M7 20h10M9 16v4m6-4v4"/></svg></div>
+                        <h3>Websites</h3>
+                        <p class="muted">Fully custom, fast, and responsive from phone to desktop. Free hosting and domain setup included.</p>
+                        <div class="tile__art" aria-hidden="true">
+                            <svg viewBox="0 0 640 170">
+                                <rect x="0" y="4" width="440" height="164" rx="12" style="fill:var(--bg)" stroke="var(--line-strong)"/>
+                                <rect x="0" y="4" width="440" height="26" rx="12" style="fill:var(--surface-2)"/>
+                                <rect x="22" y="50" width="170" height="14" rx="4" style="fill:var(--text)"/>
+                                <rect x="22" y="72" width="120" height="14" rx="4" style="fill:var(--text)"/>
+                                <rect x="22" y="100" width="150" height="6" rx="3" style="fill:var(--muted)" opacity=".5"/>
+                                <rect x="22" y="126" width="72" height="24" rx="12" style="fill:var(--accent)"/>
+                                <rect x="236" y="46" width="184" height="104" rx="10" style="fill:var(--surface-2)"/>
+                                <path d="M250 140l44-46 28 28 20-18 64 36z" style="fill:var(--accent-soft)"/>
+                                <rect x="480" y="0" width="104" height="170" rx="16" style="fill:var(--bg)" stroke="var(--line-strong)"/>
+                                <rect x="512" y="10" width="40" height="6" rx="3" style="fill:var(--surface-2)"/>
+                                <rect x="494" y="32" width="64" height="10" rx="3" style="fill:var(--text)"/>
+                                <rect x="494" y="48" width="48" height="10" rx="3" style="fill:var(--text)"/>
+                                <rect x="494" y="68" width="76" height="52" rx="8" style="fill:var(--surface-2)"/>
+                                <rect x="494" y="132" width="50" height="18" rx="9" style="fill:var(--accent)"/>
+                                <path d="M448 86h22m-6-6 6 6-6 6" stroke="var(--accent-text)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process -->
+        <section class="section" aria-labelledby="process-title" style="background:var(--bg-2)">
+            <div class="wrap process">
+                <div class="process__head">
+                    <span class="eyebrow">How a project runs</span>
+                    <h2 class="h-section" id="process-title">From idea to live, without the guesswork</h2>
+                    <p class="lede">You see progress the whole way through, and you only pay the rest once it works.</p>
+                    <a class="btn btn--ghost" href="contacts.html">Start a project</a>
+                </div>
+                <ol class="steps">
+                    <li class="steps__line" aria-hidden="true"><span></span></li>
+                    <li class="step reveal">
+                        <span class="step__dot" aria-hidden="true"></span>
+                        <h3>Tell us what you need</h3>
+                        <p>Send a message with what the bot or site should do. Rough ideas are fine; we will ask the right questions.</p>
+                        <p class="step__meta">Usually a reply within a day</p>
+                    </li>
+                    <li class="step reveal">
+                        <span class="step__dot" aria-hidden="true"></span>
+                        <h3>Get a quote</h3>
+                        <p>You get a fixed price and timeline. A down payment starts the work, and for some jobs we prove it can be done first.</p>
+                        <p class="step__meta">Pay by GCash, Maya or crypto</p>
+                    </li>
+                    <li class="step reveal">
+                        <span class="step__dot" aria-hidden="true"></span>
+                        <h3>Watch it take shape</h3>
+                        <p>We share previews as features land so you can request changes early, not after launch.</p>
+                        <p class="step__meta">Bots: about 1 week. Sites: about 1 month</p>
+                    </li>
+                    <li class="step reveal">
+                        <span class="step__dot" aria-hidden="true"></span>
+                        <h3>Launch and keep it running</h3>
+                        <p>We set up hosting, hand over access, and keep fixing bugs and making small tweaks for free.</p>
+                        <p class="step__meta">Ongoing support included</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Numbers -->
+        <section class="section section--tight" aria-labelledby="numbers-title">
+            <div class="wrap">
+                <h2 class="h-card reveal" id="numbers-title" style="margin-bottom:28px">The numbers so far <span class="muted mono" style="font-size:.875rem; font-weight:400; letter-spacing:0; margin-left:8px">as of July 2024</span></h2>
+                <div class="stats reveal">
+                    <div class="stat"><div class="stat__num" data-count="30" data-suffix="+">30+</div><p class="stat__label">Clients served</p></div>
+                    <div class="stat"><div class="stat__num" data-count="10000" data-suffix="+">10,000+</div><p class="stat__label">Lines of code per project, on average</p></div>
+                    <div class="stat"><div class="stat__num" data-count="250" data-prefix="$">$250</div><p class="stat__label">Average project cost</p></div>
+                    <div class="stat"><div class="stat__num">1 wk</div><p class="stat__label">Average delivery time</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonial -->
+        <section class="section" aria-label="What a client said">
+            <div class="wrap">
+                <figure class="quote reveal">
+                    <svg class="quote__glyph" viewBox="0 0 96 72" fill="currentColor" aria-hidden="true" data-depth="1"><circle cx="20" cy="50" r="18"/><path d="M2 50C2 24 16 8 40 2l2 8C28 16 22 28 22 40z"/><circle cx="72" cy="50" r="18"/><path d="M54 50C54 24 68 8 92 2l2 8C80 16 74 28 74 40z"/></svg>
+                    <div>
+                        <blockquote>He executed everything I wanted perfectly and worked incredibly fast. Every detail was taken care of.</blockquote>
+                        <figcaption>
+                            <span class="avatar" aria-hidden="true">LB</span>
+                            <span><strong>The Little Baker Kitchen</strong><span class="muted">Website client</span></span>
+                        </figcaption>
+                        <a class="link-arrow" href="testimonials.html" style="margin-top:20px">Read more reviews
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6 6 6-6m-6-6 6 6"/></svg>
+                        </a>
+                    </div>
+                </figure>
+            </div>
+        </section>
+
+        <!-- Pricing preview -->
+        <section class="section" aria-labelledby="pricing-title" style="padding-top:0">
+            <div class="wrap">
+                <div class="stack reveal" style="--stack:16px; margin-bottom:48px; max-width:720px">
+                    <h2 class="h-section" id="pricing-title">Simple starting prices</h2>
+                    <p class="lede">Every project is quoted up front. Most land between $200 and $300; bigger bots can go higher.</p>
+                </div>
+                <div class="tiers">
+                    <article class="tier reveal">
+                        <div><h3 class="tier__name">Discord bot</h3><p class="tier__time">About 1 week</p></div>
+                        <p class="tier__price">$100<small>and up</small></p>
+                        <ul class="checks">
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg>SQLite database</li>
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg>Hosting setup</li>
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg>External APIs and AI features</li>
+                        </ul>
+                        <a class="btn btn--ghost" href="contacts.html?plan=Discord%20bot">Choose bot</a>
+                    </article>
+                    <article class="tier tier--featured reveal" style="--i:1">
+                        <span class="tier__badge">Most popular</span>
+                        <div><h3 class="tier__name">Website</h3><p class="tier__time">About 1 month</p></div>
+                        <p class="tier__price">$200<small>and up</small></p>
+                        <ul class="checks">
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg>MongoDB database</li>
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg>Free hosting and domain setup</li>
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg>Fully custom design</li>
+                        </ul>
+                        <a class="btn btn--primary" href="contacts.html?plan=Website">Choose website</a>
+                    </article>
+                    <article class="tier reveal" style="--i:2">
+                        <div><h3 class="tier__name">Bot + website</h3><p class="tier__time">1 to 2 months</p></div>
+                        <p class="tier__price">$400<small>and up</small></p>
+                        <ul class="checks">
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg>Everything in both plans</li>
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg>Bot and site share one database</li>
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg>Shared MongoDB backend</li>
+                        </ul>
+                        <a class="btn btn--ghost" href="contacts.html?plan=Bot%20%2B%20website">Choose combo</a>
+                    </article>
+                </div>
+                <p class="pay-note reveal"><a class="link-arrow" href="pricing.html">Compare everything included
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6 6 6-6m-6-6 6 6"/></svg></a></p>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="section" aria-labelledby="faq-title" style="padding-top:0">
+            <div class="wrap faq">
+                <div class="stack reveal" style="--stack:16px">
+                    <h2 class="h-section" id="faq-title">Questions</h2>
+                    <p class="lede">The short answers. Anything else, just ask.</p>
+                    <a class="link-arrow" href="faq.html">All questions
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6 6 6-6m-6-6 6 6"/></svg>
+                    </a>
+                </div>
+                <div class="faq__list reveal">
+                    <details name="faq" open>
+                        <summary>Do you need a down payment?<span class="plus" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+                        <p>Yes, a down payment starts every project. On rare occasions we first show that the job can be done before asking for any payment.</p>
+                    </details>
+                    <details name="faq">
+                        <summary>Do you offer refunds?<span class="plus" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+                        <p>Only if we are unable to complete the project on our end.</p>
+                    </details>
+                    <details name="faq">
+                        <summary>Is there a limit to what you can build?<span class="plus" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+                        <p>If Discord's platform supports it, we can build it. Tell us the idea and we will say honestly whether it is possible.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="wrap" aria-labelledby="cta-title">
+            <div class="cta reveal">
+                <svg class="cta__art" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" data-depth="2"><path d="M62 40v120M140 40 90 100l50 60"/><circle cx="150" cy="100" r="8" fill="currentColor" stroke="none"/></svg>
+                <div>
+                    <h2 id="cta-title">Tell us what you are building.</h2>
+                    <p>Not sure which plan fits? Describe the idea and we will recommend one.</p>
+                </div>
+                <a class="btn" href="contacts.html">Start a project
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6 6 6-6m-6-6 6 6"/></svg>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="wrap">
+            <div class="footer__grid">
+                <div class="stack" style="--stack:14px">
+                    <a class="brand" href="index.html" aria-label="Klick n Code home">
+                        <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#c8f55a"/><path d="M20 16v32" stroke="#0b0f0d" stroke-width="6" stroke-linecap="round"/><path d="M44 16 29 32l15 16" fill="none" stroke="#0b0f0d" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="47" cy="32" r="3.5" fill="#0b0f0d"/></svg>
+                        <span>Klick n Code</span>
+                    </a>
+                    <p class="muted" style="max-width:32ch; font-size:.9375rem">Custom Discord bots and websites for communities and small businesses.</p>
+                </div>
+                <div>
+                    <h2>Services</h2>
+                    <ul>
+                        <li><a href="pricing.html">Discord bots</a></li>
+                        <li><a href="pricing.html">Websites</a></li>
+                        <li><a href="integrations.html">Integrations</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h2>Company</h2>
+                    <ul>
+                        <li><a href="features.html">Features</a></li>
+                        <li><a href="testimonials.html">Testimonials</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contacts.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h2>The developer</h2>
+                    <ul>
+                        <li><a href="https://koala3353.github.io/portfolio/about.html" target="_blank" rel="noopener">About</a></li>
+                        <li><a href="https://koala3353.github.io/portfolio/projects.html" target="_blank" rel="noopener">Projects</a></li>
+                        <li><a href="https://koala3353.github.io/portfolio/education.html" target="_blank" rel="noopener">Education &amp; work</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; <span data-year>2026</span> Klick n Code</p>
+                <div class="socials">
+                    <a href="https://github.com/Koala3353" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/></svg></a>
+                    <a href="https://www.linkedin.com/in/keene-brigado-7494b7316/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M0 1.15C0 .51.53 0 1.18 0h13.64C15.47 0 16 .51 16 1.15v13.7c0 .64-.53 1.15-1.18 1.15H1.18C.53 16 0 15.49 0 14.85zm4.94 12.24V6.17h-2.4v7.22zm-1.2-8.2c.84 0 1.36-.56 1.36-1.25-.02-.71-.52-1.25-1.34-1.25S2.4 3.23 2.4 3.94c0 .7.52 1.25 1.33 1.25zm4.9 8.2V9.36c0-.22.02-.43.08-.59.18-.43.57-.88 1.23-.88.87 0 1.22.66 1.22 1.64v3.86h2.4V9.25c0-2.22-1.18-3.25-2.76-3.25-1.28 0-1.85.7-2.17 1.19V6.17h-2.4c.03.68 0 7.22 0 7.22z"/></svg></a>
+                    <a href="https://www.facebook.com/rainingfishyyy/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M16 8.05C16 3.6 12.42 0 8 0S0 3.6 0 8.05c0 4.02 2.93 7.35 6.75 7.95v-5.62H4.72V8.05h2.03V6.27c0-2.01 1.2-3.13 3.02-3.13.88 0 1.8.16 1.8.16v1.98h-1.01c-1 0-1.31.62-1.31 1.26v1.51h2.22l-.35 2.33H9.25V16C13.07 15.4 16 12.07 16 8.05"/></svg></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/kc.js" defer></script>
+</body>
 </html>
